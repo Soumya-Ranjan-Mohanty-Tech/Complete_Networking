@@ -26,7 +26,311 @@ Device. Switch(Connects device in local network). Router (Connects network and d
 **OSI Model**
 The Problem its solves: Back in the early days of networking every company made its own hardware and software. IBP computers were able to talk only IBM computers- DC nly talked with DC. Nothing worked together, it was chaos. So, in the 1980s the ISO that's the internation organisation for standardisation created the OSI that stands for open system interconnection. The OSI model is a conceptual framework, a way to describe how network communication should work. it devided into seven layers. Each layer has a specific job- communicates within the layers above or below. This separation helps vendors create to build differnt  pieces and as long as as each piece does its job correctly, everything works together. Makes troubleshooting easy- Example: Is this a Layer 3 or Layer 7 problem? Security: Every layer has its own attack surface and defence mechanisms. OSI=Open System Interconnection- created by ISO
 [All 7 layer]
-**Physical Bits**: PDU(Protocol Data Unit. A PDU is the specific name for data at each layer of the OSI model): Bit. Copper, Fiber, Radio waves, Connections. This layer handles: Raw electrical, Optical, Radio signal transmission. It is responsible for physically moving bits across media. Main Responsibilities: Electrical signaling, Voltage levels, Timing, Connectors, Cable standards, Wireless frequencies, Data transmission speed. Physical Media: 1) Copper Cable Uses electrical signals. Examples: Ethernet cables (Cat5e, Cat6). Advantages: Cheap and Easy to install. Disadvantages: Electromagnetic interference, Shorter range. 2) Fiber Optic Cable Uses light pulses. Advantages: Very fast, Long-distance communication, Immune to electromagnetic interference. Disadvantages: More expensive, Fragile. 3) Radio Waves, Used in wireless communication. Examples: Wi-Fi, Bluetooth, Cellular networks. Uses: Electromagnetic radio frequencies. Devices at Layer 1: Hubs, Repeaters, Cables, Connectors, NIC physical transceivers. **DATA Link FRAME**: PDU:Frame. ethernet, WiFi(802.11), MAC. Data Link Layer. PDU: Frame. The Data Link layer packages packets into: Frames. Purpose: Local network delivery (hop-to-hop). Main Responsibilities: MAC addressing, Error detection, Framing, Media access control, Local delivery. [Ethernet (Invented: 1973 at Xerox PARC. Standardized by: IEEE as IEEE 802.3 (1983). Typical speeds: 10 Mbps → 400 Gbps (and beyond). Transmission medium: Twisted-pair copper or fiber-optic cabling. Protocol: Carrier Sense Multiple Access with Collision Detection (CSMA/CD)). Ethernet operates at the physical (Layer 1) and data-link (Layer 2) levels of the OSI model. Devices share a medium using CSMA/CD, which minimizes data collisions by having each node “listen” before transmitting. Data is sent as frames, each containing source and destination MAC addresses, payload data, and error-checking codes. Modern switched Ethernet largely eliminates collisions by giving each link a dedicated path.] Ethernet: Most common wired LAN technology. Ethernet frame contains: Source MAC, Destination MAC, EtherType, Payload, FCS (CRC error checking). [Wi-Fi (802.11)]: IEEE 802.11, Wireless equivalent of Ethernet. Adds: Wireless authentication, Signal management, Radio coordination. [MAC Address] A hardware address assigned to network interfaces. Format: 00:1A:2B:3C:4D:5E, 48-bit hexadecimal value. Purpose: Local device identification, Error Detection. Uses: CRC/FCS. Detects: Corrupted frames during transmission. **NETWORK PACKET**: PDU: Packet. IP, ICMP, ARP(Layer 2.5 protocol-ARP operates between Layer 2 and Layer 3.). **TRANSPORT SEGMENT/DATAGRAM**: PDU: Segment. TCP → Segment, UDP → Datagram. **SESSION**: PDU: Data. NetBIOS, RPC, SIP. **Presentation**: PDU: Data. TLS/SSL, JPEG, MPEG, ASCII. **APPLICATION DATA**: PDU: Data. HTTP, HTTPS(HTTPS is HTTP + TLS/SSL), DNS, FTP, SMTP, SSH.
+**Physical Bits**: PDU(Protocol Data Unit. A PDU is the specific name for data at each layer of the OSI model): Bit. Copper, Fiber, Radio waves, Connections. This layer handles: Raw electrical, Optical, Radio signal transmission. It is responsible for physically moving bits across media. Main Responsibilities: Electrical signaling, Voltage levels, Timing, Connectors, Cable standards, Wireless frequencies, Data transmission speed. Physical Media: 1) Copper Cable Uses electrical signals. Examples: Ethernet cables (Cat5e, Cat6). Advantages: Cheap and Easy to install. Disadvantages: Electromagnetic interference, Shorter range. 2) Fiber Optic Cable Uses light pulses. Advantages: Very fast, Long-distance communication, Immune to electromagnetic interference. Disadvantages: More expensive, Fragile. 3) Radio Waves, Used in wireless communication. Examples: Wi-Fi, Bluetooth, Cellular networks. Uses: Electromagnetic radio frequencies. Devices at Layer 1: Hubs, Repeaters, Cables, Connectors, NIC physical transceivers. **DATA Link FRAME**: PDU:Frame. ethernet, WiFi(802.11), MAC. Data Link Layer. PDU: Frame. The Data Link layer packages packets into: Frames. Purpose: Local network delivery (hop-to-hop). Main Responsibilities: MAC addressing, Error detection, Framing, Media access control, Local delivery. [Ethernet (Invented: 1973 at Xerox PARC. Standardized by: IEEE as IEEE 802.3 (1983). Typical speeds: 10 Mbps → 400 Gbps (and beyond). Transmission medium: Twisted-pair copper or fiber-optic cabling. Protocol: Carrier Sense Multiple Access with Collision Detection (CSMA/CD)). Ethernet operates at the physical (Layer 1) and data-link (Layer 2) levels of the OSI model. Devices share a medium using CSMA/CD, which minimizes data collisions by having each node “listen” before transmitting. Data is sent as frames, each containing source and destination MAC addresses, payload data, and error-checking codes. Modern switched Ethernet largely eliminates collisions by giving each link a dedicated path.] Ethernet: Most common wired LAN technology. Ethernet frame contains: Source MAC, Destination MAC, EtherType, Payload, FCS (CRC error checking). [Wi-Fi (802.11)]: IEEE 802.11, Wireless equivalent of Ethernet. Adds: Wireless authentication, Signal management, Radio coordination. [MAC Address] A hardware address assigned to network interfaces. Format: 00:1A:2B:3C:4D:5E, 48-bit hexadecimal value. Purpose: Local device identification, Error Detection. Uses: CRC/FCS. Detects: Corrupted frames during transmission. **NETWORK PACKET**: PDU: Packet. IP, ICMP, ARP(Layer 2.5 protocol-ARP operates between Layer 2 and Layer 3.). Network Layer
+PDU: Packet
+
+Responsible for:
+
+Logical addressing
+Routing
+End-to-end delivery across networks
+IP (Internet Protocol)
+
+Internet Protocol
+
+Provides:
+
+Source IP
+Destination IP
+Routing information
+
+Examples:
+
+IPv4
+IPv6
+Routing
+
+Routers examine:
+
+Destination IP
+
+Then decide:
+
+Best next hop/path
+TTL (Time To Live)
+
+An 8-bit field.
+
+Purpose:
+
+Prevent infinite loops
+
+Every router:
+
+Decrements TTL by 1
+
+If TTL = 0:
+
+Packet dropped
+ICMP Time Exceeded returned
+ICMP
+
+Internet Control Message Protocol
+
+Used for:
+
+Diagnostics
+Error reporting
+
+Examples:
+
+Ping
+Traceroute
+
+Common messages:
+
+Echo Request
+Echo Reply
+Destination Unreachable
+Time Exceeded. 
+**ARP (Layer 2.5)**
+
+Address Resolution Protocol
+
+Converts:
+
+IP address → MAC address
+
+Needed because:
+
+Ethernet delivers using MAC
+Applications use IP
+ARP Process
+ARP Request
+Who has 192.168.1.10?
+
+Broadcast to all devices.
+
+ARP Reply
+192.168.1.10 is AA:BB:CC:DD:EE:FF
+
+Returned by target device. **TRANSPORT SEGMENT/DATAGRAM**: PDU: Segment. TCP → Segment, UDP → Datagram. Transport Layer
+PDU:
+TCP → Segment
+UDP → Datagram
+
+Purpose:
+
+Process-to-process communication
+
+Uses:
+
+Port numbers
+TCP
+
+Transmission Control Protocol
+
+Reliable, connection-oriented protocol.
+
+Features:
+
+Sequencing
+Acknowledgements
+Retransmission
+Flow control
+TCP 3-Way Handshake
+SYN
+SYN-ACK
+ACK
+
+Establishes connection.
+
+Sequence Numbers
+
+Track:
+
+Exact byte order
+
+Allows:
+
+Reassembly of out-of-order packets.
+ACK Numbers
+
+Confirm:
+
+Successfully received bytes.
+UDP
+
+User Datagram Protocol
+
+Fast but unreliable.
+
+Features:
+
+No handshake
+No retransmission
+Minimal overhead
+
+Used for:
+
+Streaming
+Gaming
+VoIP
+DNS**SESSION**: PDU: Data. NetBIOS, RPC, SIP. Session Layer
+PDU: Data
+
+Manages:
+
+Session establishment
+Maintenance
+Termination
+
+Controls:
+
+Dialogs/conversations between systems.
+NetBIOS
+
+Provides:
+
+Session communication
+Name services
+
+Historically common in Windows networking.
+
+RPC (Remote Procedure Call)
+
+Allows:
+
+One computer to execute functions on another computer.
+
+Used heavily in:
+
+Distributed systems
+SIP (Session Initiation Protocol)
+
+Used for:
+
+VoIP call setup
+
+Responsible for:
+
+Starting
+Managing
+Ending calls. **Presentation**: PDU: Data. TLS/SSL, JPEG, MPEG, ASCII. Presentation Layer
+PDU: Data
+
+Responsible for:
+
+Translation
+Encryption
+Compression
+Formatting
+TLS/SSL
+
+Transport Layer Security
+
+Provides:
+
+Encryption
+Authentication
+Confidentiality
+
+Used by:
+
+HTTPS
+JPEG
+
+Image compression format.
+
+Purpose:
+
+Reduce image size.
+MPEG
+
+Video/audio compression standard.
+
+Used for:
+
+Video streaming
+Multimedia
+ASCII
+
+Character encoding standard.
+
+Converts:
+
+Characters ↔ Binary
+
+Example:
+
+A = 65. **APPLICATION DATA**: PDU: Data. HTTP, HTTPS(HTTPS is HTTP + TLS/SSL), DNS, FTP, SMTP, SSH. Application Layer
+PDU: Data
+
+Closest layer to the user.
+
+Provides:
+
+Network services directly to applications.
+HTTP
+
+Hypertext Transfer Protocol
+
+Used for:
+
+Web communication
+
+Default port:
+
+80
+HTTPS
+
+HTTP + TLS/SSL.
+
+Provides:
+
+Secure encrypted web traffic
+
+Default port:
+
+443
+DNS
+
+Domain Name System
+
+Converts:
+
+Domain names → IP addresses
+
+Example:
+
+google.com → 142.250.x.x
+FTP
+
+File Transfer Protocol.
+
+Used for:
+
+File transfers
+SMTP
+
+Simple Mail Transfer Protocol.
+
+Used for:
+
+Sending email
+SSH
+
+Secure Shell
+
+Provides:
+
+Secure remote login
+Command execution
+Tunneling
+
+Encrypted alternative to:
+
+Telnet
 
 
 
