@@ -25,7 +25,7 @@ This is a security mechanism used to verify:
 
 Example:
 
-```text
+```
 Message + Secret Key
          ↓
      MAC Algorithm
@@ -66,7 +66,15 @@ MAC (Crypto) = Message Authentication Code
 
 **1)** **Devices**(Anything with a chip and a connection)-Laptop has IP address like phone, server. Next comes Cables or WiFi Signals. Then Data travelling the network. 
 Device. Switch(Connects device in local network). Router (Connects network and decides the route). Internet (The global highway-WAN). Server (The destination has a IP address too).
-**Attacks**= **Data Breaches**( DATA STOLEN THROUGH OPEN **NETWORK PORTS**). **Ransomware** (SPREADS ACROSS **NETWORK TO ENCRYPT FILES**). **Phihsing** (EXPLOITS **EMIAL AND WEB PROTOCOL*). **Man in the Middle** (INTERCEPTS **UNENCRYPTED TRAFFIC*). **DDoS Attacks** (FLOODS **NETWORK BANDWIDTH* WITH GARBAGE). **Port Scanning** (Maps your **network's open doors*).
+
+### Attacks
+**Data Breaches** (DATA STOLEN THROUGH OPEN **NETWORK PORTS**).
+**Ransomware** (SPREADS ACROSS **NETWORK TO ENCRYPT FILES**).
+**Phihsing** (EXPLOITS **EMIAL AND WEB PROTOCOL*).
+**Man in the Middle** (INTERCEPTS **UNENCRYPTED TRAFFIC*). 
+**DDoS Attacks** (FLOODS **NETWORK BANDWIDTH* WITH GARBAGE). 
+**Port Scanning** (Maps your **network's open doors*).
+
 **2)** **Ports** are the logical endpoint. Port 80- Door for web traffic (HTTP). Port 443 - Secure web door (HTTPS). Port 25 is email (SMTP). Port 22 - SSH(Secure Shell)(Remote Access-Remote command line access). Port 53 - DNS - Domain Name System (Maps domain name to IP Address- Converts name to readable IP numbers for the computer)
 **Protocol** - It is a set of rules thats sets the communication. HTTP (Rules for loading web pages- request+response). DNS (Rules for converting domain names to IP Address). TCP (Transfer Control Protocal - Rules for reliable, ordered data delivery).
 **Types of Networks**
