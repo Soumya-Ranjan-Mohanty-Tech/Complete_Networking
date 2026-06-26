@@ -3,8 +3,6 @@ Notes
 **Network** is the collection of devices that are connected together. When devices can talk to each other then it is a network.
 **IP address** is a address of a device on a network IPv4 or IPv6(Enough addresses for each atom of earth) (WE ARE RUNNING OUT OF IPv4)
 
-
-
 **MAC = Media Access Control**Address
 
 Example:
